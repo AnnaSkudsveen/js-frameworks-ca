@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "../components/Layout/Button";
+import CheckPrice from "../components/price";
+// import { Button } from "../components/Button";
 
 function ProductCard() {
   const url = "https://v2.api.noroff.dev/online-shop/";
@@ -35,7 +36,7 @@ function ProductCard() {
             alt={product.image.alt}
             className="productImage"
           />
-          <p>Price: {product.price} kr</p>
+          <CheckPrice product={product} />
           <Link to={`/product/${product.id}`}>View product</Link>
         </div>
       ))}
