@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useStoreCart from "../components/store/cartStore";
+import CheckPrice from "../components/price";
 
 function Product() {
   const [product, setProduct] = useState(null);
   let { id } = useParams();
+  const { addToCart } = useStoreCart();
 
   useEffect(() => {
     async function getProduct(url) {
@@ -22,15 +25,27 @@ function Product() {
     return <p>Loading products...</p>;
   }
 
-  console.log(product);
-
   return (
     <div>
       <h1>{product.title}</h1>
       <p>{product.description}</p>
       <img src={product.image.url} alt={product.image.alt} />
-      <p>Price: {product.price} kr</p>
-      <button>Add to Cart</button>
+      <CheckPrice product={product} />
+      <button onClick={() => addToCart(product)}>Add to Cart</button>
+      <div>
+        <h2>Reviews</h2>
+        {product.reviews.length > 0 ? (
+          product.reviews.map((review) => (
+            <div>
+              <h3>{review.username}</h3>
+              <p>{review.description}</p>
+              <p>{review.rating}/5</p>
+            </div>
+          ))
+        ) : (
+          <p>No reviews yet.</p>
+        )}
+      </div>
     </div>
   );
 }
