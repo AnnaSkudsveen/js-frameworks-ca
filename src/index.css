@@ -44,14 +44,14 @@ nav {
   align-items: center;
 }
 
-a {
+nav a {
   list-style: none;
   padding-left: 2rem;
   margin: 0;
   color: #ffffff;
 }
 
-a.active {
+nav a.active {
   color: #747bff;
 }
 
