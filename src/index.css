@@ -33,6 +33,12 @@ body {
   color: #1a1a1a;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .bodySection {
   display: flex;
   flex-direction: column;
@@ -73,6 +79,20 @@ nav a.active {
   height: 1.5rem;
   width: 1.5rem;
   color: #535bf2;
+}
+
+.contactForm {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
 }
 
 h1 {
