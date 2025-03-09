@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useStoreCart from "../components/store/cartStore";
 import { useNavigate } from "react-router-dom";
 
 function CheckoutSuccess() {
   const { cart, clearCart } = useStoreCart();
   const navigate = useNavigate();
-  useEffect(() => {
-    clearCart(); // Clear the cart immediately after the page loads
-    navigate("/"); // Navigate to home page after clearing the cart
-  }, [clearCart, navigate]);
+
+  function handleHome() {
+    clearCart();
+    navigate("/");
+  }
 
   return (
     <div>
@@ -16,10 +17,11 @@ function CheckoutSuccess() {
       {cart.map(function (product) {
         <div key={product.id}>
           <h2>{product.title}</h2>
-          <p>Total Price: {product.price * product.quantity} kr</p>
-          <p>Quantity: {product.quantity}</p>
+          <p>Total Price: {product.price * product.quantity || 1} kr</p>
+          <p>Quantity: {product.quantity || 1}</p>
         </div>;
       })}
+      <button onClick={handleHome}>Exit</button>
     </div>
   );
 }
