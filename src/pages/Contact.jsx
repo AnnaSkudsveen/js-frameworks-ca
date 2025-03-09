@@ -9,7 +9,8 @@ function Contact() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)}>
+    <form className="contactForm" onSubmit={handleSubmit(onFormSubmit)}>
+      <h1 style={{ fontSize: "40px" }}>Contact us</h1>
       <input
         type="text"
         placeholder="Full name"
