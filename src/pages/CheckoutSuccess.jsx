@@ -1,5 +1,5 @@
 import React from "react";
-import useStoreCart from "../components/store/cartStore";
+import useStoreCart from "../components/cartStore";
 import { useNavigate } from "react-router-dom";
 
 function CheckoutSuccess() {

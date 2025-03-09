@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useStoreCart from "../components/store/cartStore";
+import useStoreCart from "../components/cartStore";
 import CheckPrice from "../components/price";
 
 function Product() {
