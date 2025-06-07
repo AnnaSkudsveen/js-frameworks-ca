@@ -1,15 +1,35 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 
+/**
+ * Contact component renders a contact form where users can submit their inquiries.
+ *
+ * The form includes:
+ * - Full name input (with validation for minimum length).
+ * - Dropdown to select a subject (with validation).
+ * - Email input (with validation for proper email format).
+ * - Message textarea (with validation for minimum length).
+ *
+ * When submitted, the form logs the input data to the console.
+ *
+ * @component
+ * @returns {JSX.Element} Contact form.
+ */
 function Contact() {
   const { register, handleSubmit } = useForm();
 
+  /**
+   * Handles the form submission.
+   * Logs the form data to the console.
+   *
+   * @param {Object} data - The form data.
+   */
   function onFormSubmit(data) {
     console.log(data);
   }
 
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)}>
+    <form className="contactForm" onSubmit={handleSubmit(onFormSubmit)}>
+      <h1 style={{ fontSize: "40px" }}>Contact us</h1>
       <input
         type="text"
         placeholder="Full name"

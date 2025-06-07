@@ -2,12 +2,25 @@ import React, { useState, useEffect } from "react";
 import GetData from "./GetData";
 import { Link } from "react-router-dom";
 
+/**
+ * A search bar component that fetches products and displays matching suggestions.
+ *
+ * Users can type a query into the input, and matching product titles will be shown as links.
+ * Clicking a suggestion navigates to the product's detail page.
+ *
+ * @component
+ * @returns {JSX.Element} A search input with auto-suggestions for product titles.
+ */
 function SearchBar() {
   const [search, setSearch] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    /**
+     * Fetches all products for search suggestions.
+     * Uses GetData to retrieve product list.
+     */
     async function fetchProducts() {
       try {
         setLoading(true);

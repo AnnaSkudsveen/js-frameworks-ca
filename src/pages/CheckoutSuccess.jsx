@@ -1,11 +1,25 @@
-import React from "react";
 import useStoreCart from "../components/cartStore";
 import { useNavigate } from "react-router-dom";
+
+/**
+ * CheckoutSuccess component displays a summary of the purchased items
+ * and clears the cart upon exiting.
+ *
+ * - Shows cart items with their total price and quantity.
+ * - If cart is already empty, a message is shown.
+ * - Includes a button to return to the home page and clear the cart.
+ *
+ * @component
+ * @returns {JSX.Element} Rendered checkout success page.
+ */
 
 function CheckoutSuccess() {
   const { cart, clearCart } = useStoreCart();
   const navigate = useNavigate();
 
+  /**
+   * Clears the cart and redirects the user to the home page.
+   */
   function handleHome() {
     clearCart();
     navigate("/");

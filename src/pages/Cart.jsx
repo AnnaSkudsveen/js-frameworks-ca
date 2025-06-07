@@ -2,12 +2,28 @@ import React from "react";
 import useStoreCart from "../components/cartStore";
 import { Link } from "react-router-dom";
 
+/**
+ * Cart component that displays the current products in the shopping cart.
+ *
+ * - Shows a list of products with their title, quantity, and price.
+ * - Provides a button to remove individual items from the cart.
+ * - Calculates and displays the total cart value.
+ * - Displays a checkout link if the cart is not empty.
+ *
+ * Uses Zustand store `useStoreCart` for state management.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered cart interface.
+ */
 function Cart() {
   const { cart, removeFromCart } = useStoreCart();
+
+  /** @type {number} Total value of all items in the cart */
   const totalCartValue = cart.reduce(
     (total, product) => total + product.price * (product.quantity || 1),
     0
   );
+
   return (
     <div>
       <h1>In your cart</h1>

@@ -3,12 +3,33 @@ import { useParams } from "react-router-dom";
 import useStoreCart from "../components/cartStore";
 import CheckPrice from "../components/price";
 
+/**
+ * Product component fetches and displays the details of a single product.
+ *
+ * This component:
+ * - Fetches product details using the product ID from the URL.
+ * - Displays the product's title, description, image, and price.
+ * - Allows the user to add the product to the cart.
+ * - Displays the product's reviews (if any).
+ *
+ * @component
+ * @example
+ * // Renders a product's details based on the ID in the URL
+ * <Product />
+ *
+ * @returns {JSX.Element} A product page with details, pricing, reviews, and an option to add the product to the cart.
+ */
 function Product() {
   const [product, setProduct] = useState(null);
   let { id } = useParams();
   const { addToCart } = useStoreCart();
 
   useEffect(() => {
+    /**
+     * Fetches the product data from the API based on the provided product ID.
+     *
+     * @param {string} url - The API URL for the product data.
+     */
     async function getProduct(url) {
       try {
         const response = await fetch(url);

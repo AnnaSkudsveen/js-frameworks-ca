@@ -1,7 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CheckPrice from "../components/price";
 import GetData from "./GetData";
+
+/**
+ * Component that fetches and displays a list of product cards.
+ * Each card shows an image, title, price (including discount logic),
+ * and a link to the product detail page.
+ *
+ * @component
+ * @returns {JSX.Element} A list of product cards or a loading message.
+ */
 
 function ProductCard() {
   const [products, setProducts] = useState([]);
